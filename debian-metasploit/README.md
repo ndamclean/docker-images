@@ -12,12 +12,13 @@ ports in the container, creates an interactive TTY session, and runs the image.
 ```
 $ docker run -p 4444:4444 -p 8080:8080 -it watersalesman/debian-metasploit
 ```
-
-The following example only publishes port 4444. It also binds root's ~/.msf4 folder
-on the host to root's folder in the container. This allows for continuity
+***
+The following example only publishes port 4444. It also binds the msf_files folder
+on the host to root's .msf4 folder in the container. This allows for continuity
 between container instances and easy exfiltration of files from the
 container to the host.
+
 ```
-$ docker run -p 4444:4444 -v -it watersalesman/debian-metasploit
+$ docker run -p 4444:4444 -v ~/msf_files:/root/.msf4 -it watersalesman/debian-metasploit
 ```
 ***
