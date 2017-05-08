@@ -1,4 +1,4 @@
-This is a fully functional for the cost of only 13.1 MB! The default configuration
+This is a fully functional SFTP/SSH server for the cost of only 13.1 MB! The default configuration
 has a non-privileged user "sftp" with password "DefaultPassSFTP", root with default
 password of "RootPassSFTP", and is exposed on port 22.
 
