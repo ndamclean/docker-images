@@ -11,7 +11,7 @@ The following command binds the host's ports 4444 and 8080 to the corresponding 
 $ docker run -p 4444:4444 -p 8080:8080 -it watersalesman/debian-metasploit
 ```
 ***
-The following example only publishes port 4444. It also binds the msf_files folder on the host to root's .msf4 folder in the container. This allows for continuity between container instances and easy exfiltration of files from the container to the host.
+The following example only publishes port 4444. It also binds the *msf_files* folder on the host to root's *.msf4* folder in the container. This allows for continuity between container instances and easy exfiltration of files from the container to the host.
 
 ```
 $ docker run -p 4444:4444 -v ~/msf_files:/root/.msf4 -it watersalesman/debian-metasploit
