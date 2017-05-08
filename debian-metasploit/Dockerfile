@@ -37,8 +37,14 @@ RUN apt update && apt-get -y install \
   tmux \
   vim-tiny
 
+RUN /etc/init.d/postgresql start \
+&& su postgres -c 'echo -e "msfdb\nmsfdb" | createuser -SRPD msf' \
+&& su postgres -c 'createdb -O msf msf'
 RUN git clone https://github.com/rapid7/metasploit-framework /opt/metasploit
 RUN cd /opt/metasploit && bundle install
 RUN ln -sf /opt/metasploit/msf* /usr/bin/
 
-CMD msfupdate && msfconsole
+ADD init.sh /opt/init.sh
+ADD database.yml /opt/metasploit/config/database.yml
+
+CMD sh /opt/init.sh
