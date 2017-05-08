@@ -1,4 +1,5 @@
 FROM alpine
+MAINTAINER Randy Ramos <rramos1295 \at\ gmail \dot\ com>
 
 ENV SSH_USER=sftp
 ENV SSH_PASS=DockerPassSFTP
