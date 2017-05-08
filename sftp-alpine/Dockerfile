@@ -7,8 +7,8 @@ ENV ROOT_PASS=RootPassSFTP
 RUN apk add --no-cache bash openssh shadow
 RUN ssh-keygen -A \
 && useradd -m -s /bin/bash $SSH_USER \
-&& echo "root:$ROOT_PASS" | chpasswd \
 && echo "$SSH_USER:$SSH_PASS" | chpasswd \
+&& echo -e "$ROOT_PASS\n$ROOT_PASS" | passwd
 
 ADD sshd_config /etc/ssh/sshd_config
 
