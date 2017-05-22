@@ -1,4 +1,4 @@
-FROM debian
+FROM debian:testing
 MAINTAINER Randy Ramos <rramos1295 \at\ gmail \dot\ com>
 
 RUN apt update && apt-get -y install \
