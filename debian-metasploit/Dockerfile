@@ -41,6 +41,7 @@ RUN /etc/init.d/postgresql start \
 && su postgres -c 'echo -e "msfdb\nmsfdb" | createuser -SRPD msf' \
 && su postgres -c 'createdb -O msf msf'
 RUN git clone https://github.com/rapid7/metasploit-framework /opt/metasploit
+RUN git config --global user.name 'msf' && git config --global user.email 'msf@example.org'
 RUN cd /opt/metasploit && bundle install && ./msfupdate
 RUN ln -sf /opt/metasploit/msf* /usr/bin/
 
