@@ -1,0 +1,17 @@
+---
+version: '2.3'
+
+services:
+  sftp:
+    build:
+      context: .
+      args:
+        SSH_USER: sftp
+        SSH_PASS: ${SSH_PASS:?SSH_PASS env var required}
+        ROOT_PASS: ${ROOT_PASS:?ROOT_PASS env var required}
+    volumes:
+      - type: bind
+        source: /data/sftp
+        target: /home/sftp
+    ports:
+      - "${PORT:?PORT env var required}:22"
